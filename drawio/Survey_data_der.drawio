@@ -1,4 +1,4 @@
-<mxfile host="app.diagrams.net" modified="2020-12-17T13:26:21.120Z" agent="5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/87.0.4280.88 Safari/537.36" etag="pr08ja18PDfJLs7LYy7-" version="14.0.3" type="github">
+<mxfile host="app.diagrams.net" modified="2020-12-17T13:27:20.082Z" agent="5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/87.0.4280.88 Safari/537.36" etag="xTI9qQB4hp7dvWNwzeiG" version="14.0.3" type="github">
   <diagram id="tTLa9AdW2Mtm0XmmkCfz" name="Page-1">
     <mxGraphModel dx="1422" dy="794" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1169" pageHeight="827" math="0" shadow="0">
       <root>
@@ -132,9 +132,6 @@
         </mxCell>
         <mxCell id="jubV7-twtPXMku64c-Cl-23" value="Remove NSSD" style="rounded=1;whiteSpace=wrap;html=1;absoluteArcSize=1;arcSize=14;strokeWidth=2;fontSize=12;fillColor=#d5e8d4;strokeColor=#82b366;" parent="1" vertex="1">
           <mxGeometry x="310" y="292" width="100" height="100" as="geometry" />
-        </mxCell>
-        <mxCell id="qjIh94O3UAw2UJEuniRW-1" value="This is a survey flowchart" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;" vertex="1" parent="1">
-          <mxGeometry x="880" y="30" width="250" height="20" as="geometry" />
         </mxCell>
       </root>
     </mxGraphModel>
