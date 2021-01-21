@@ -1,0 +1,28 @@
+# packages in environment at C:\Users\mullanm\Anaconda3\envs\engine:
+#
+# Name                    Version                   Build  Channel
+blas                      1.0                         mkl  
+ca-certificates           2020.10.14                    0  
+certifi                   2020.6.20          pyhd3eb1b0_3  
+fuzzywuzzy                0.18.0                   pypi_0    pypi
+intel-openmp              2020.2                      254  
+mkl                       2020.2                      256  
+mkl-service               2.3.0            py38hb782905_0  
+mkl_fft                   1.2.0            py38h45dec08_0  
+mkl_random                1.1.1            py38h47e9c7a_0  
+numpy                     1.19.2           py38hadc3359_0  
+numpy-base                1.19.2           py38ha3acd2a_0  
+openssl                   1.1.1h               he774522_0  
+pandas                    1.1.3            py38ha925a31_0  
+pip                       20.2.4           py38haa95532_0  
+python                    3.8.5                h5fd99cc_1  
+python-dateutil           2.8.1                      py_0  
+pytz                      2020.1                     py_0  
+setuptools                50.3.1           py38haa95532_1  
+six                       1.15.0           py38haa95532_0  
+sqlite                    3.33.0               h2a8f88b_0  
+vc                        14.1                 h0510ff6_4  
+vs2015_runtime            14.16.27012          hf0eaf9b_3  
+wheel                     0.35.1             pyhd3eb1b0_0  
+wincertstore              0.2                      py38_0  
+zlib                      1.2.11               h62dcd97_4  
