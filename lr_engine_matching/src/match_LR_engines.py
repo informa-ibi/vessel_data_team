@@ -103,7 +103,7 @@ if __name__ == '__main__':
     # Part 2: Get gain i.e. number of non null entries from LR where the SID value is 'UNKNOWN' or null (i.e. new IMOs)
     gain = lr_sid_neq.loc[((lr_sid_neq.ENGINE_DESIGNATION_sid == 'UNKNOWN') | (lr_sid_neq.ENGINE_DESIGNATION_sid.isnull()))
                           & (lr_sid_neq.ENGINE_DESIGNATION_lr != 'N/K')
-                          & (lr_sid_neq.ENGINE_DESIGNATION_lr.notnull())]\
+                          & (lr_sid_neq.ENGINE_DESIGNATION_lr.notnull())]
 
     # Part 3: Isolate the new values from LR that replace the UNKNOWN values that are new eng designations
     existing_eng_desig = sid_eng_desig_df.ENGINE_DESIGNATION.tolist()
@@ -134,7 +134,7 @@ if __name__ == '__main__':
     output_df['designer_match_val'] = output_df.apply(lambda row: pd.Series(compare_company(row['Designer_compare'],
                                                                                             row['DESIGNER_lr'])),
                                                       axis=1)
-    output_df.to_csv(OUTPUT_DIR / 'lr_engine_designation_comparison.csv', index=False)
+    output_df.to_csv('lr_engine_designation_comparison.csv', index=False)
 
     # Part 8: File manually reviewed for engine designations that do and don't match and based on outputs:
     # 8a/ Create df for MAPPING new engine designations that have a similar existing in SID
