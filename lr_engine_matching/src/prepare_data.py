@@ -98,3 +98,10 @@ if __name__ == '__main__':
                                                len(diff_list_sid_eng),
                                                sid_vsl_eng.isna().sum().ENGINE_DESIGNATION,
                                                len(sid_vsl_eng.loc[sid_vsl_eng.ENGINE_DESIGNATION == 'UNKNOWN'].LREGNO.unique())))
+
+    # Part 3: Isolate the engine designations aren't in SID
+    lr_eng_desig = lr_df.ENGINE_DESIGNATION.unique().tolist()
+    existing_eng_desig = sid_eng_desig_df.ENGINE_DESIGNATION.tolist()
+    new_eng_desig = np.setdiff1d(lr_eng_desig, existing_eng_desig)
+    print("There are {} engine designations from LR that aren't in SID, which has {}.".format(len(new_eng_desig),
+                                                                                              len(existing_eng_desig)))

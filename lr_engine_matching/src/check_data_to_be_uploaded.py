@@ -64,3 +64,10 @@ if __name__ == '__main__':
     print("--- %s seconds ---" % (time.time() - start_time))
     # checks: sid_vsl_all_features_df.loc[sid_vsl_all_features_df.LREGNO == 9503457.0]
     # where it wasn't in the apply df and is more complicated - probably needs manually reviewed
+
+    print("There are {} LR entries not to be uploaded.".format(len(not_for_upload_df)))
+    print("There are {} LR entries to overwrite the existing SID data.".format(len(to_upload_and_apply_df)))
+    print("There are {} LR entries to be compared as they should may raise conflicts or not "
+          "need to be uploaded.".format(len(to_compare_df)))
+    print("There are {} LR entries that require a manual review as they are more complex "
+          "and have multiple entries for the one vessel.".format(len(manual_review_df)))
