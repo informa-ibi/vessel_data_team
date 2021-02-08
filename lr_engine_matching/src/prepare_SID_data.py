@@ -1,4 +1,5 @@
 import pandas as pd
+import numpy as np
 from src.setup import COMPANY, ENG_DESIGNATIONS, ENG_MODEL, LR, VSL_ID, VSL_ENGINES, SID_PROCESSED, LR_PROCESSED
 
 
@@ -73,3 +74,27 @@ if __name__ == '__main__':
 
     sid_vsl_all_features_df.to_csv(SID_PROCESSED, index=False)
     lr_df.to_csv(LR_PROCESSED, index=False)
+
+
+
+    count_nan_eng_desig_lr = lr_df.isna().sum().ENGINE_DESIGNATION
+    count_unk_eng_desig_lr = len(lr_df.loc[lr_df.ENGINE_DESIGNATION == 'N/K'])
+    print("The LR datasets for Main Engines has {} missing values for Engine Designation and {} values as 'N/K'"
+          " out of {} total values."
+          .format(count_nan_eng_desig_lr, count_unk_eng_desig_lr, len(lr_df)))
+    print("No. unique vessels in the Main Engine data is {}".format(len(lr_df.IMO.unique())))
+    lr_uplift_df = lr_df.loc[~((lr_df.ENGINE_DESIGNATION.isnull()) | (lr_df.ENGINE_DESIGNATION == 'N/K'))]
+    print("Total number observations in LR main engine data where the data is informative i.e. isn't missing or unknown"
+          " is {}".format(len(lr_uplift_df)))
+    print('Total unique IMOs in this is {}'.format(len(lr_uplift_df.IMO.unique())))
+    sid_imos_for_lr = sid_relevent_imo_df.LREGNO.unique().tolist()
+    diff_list = np.setdiff1d(list_lr_imos, sid_imos_for_lr)  # yields the elements in first list that aren't in second
+    print('There are {} IMOs from LR that need to be created in SID (or have IMO assigned).'.format(len(diff_list)))
+
+    diff_list_sid_eng = np.setdiff1d(list_lr_imos, sid_vsl_eng.LREGNO.unique().tolist())
+    print("\nOut of the {} LR IMOs, {} are not contained in the SID vessel engine designation table, "
+          "{} have null values in this table for Engine Designation and "
+          "{} have the value 'UNKNOWN'".format(len(lr_df.IMO.unique()),
+                                               len(diff_list_sid_eng),
+                                               sid_vsl_eng.isna().sum().ENGINE_DESIGNATION,
+                                               len(sid_vsl_eng.loc[sid_vsl_eng.ENGINE_DESIGNATION == 'UNKNOWN'].LREGNO.unique())))
