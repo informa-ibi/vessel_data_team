@@ -22,3 +22,8 @@ if __name__ == '__main__':
                                                                                                'engine_designation_from_sid']]
 
     print("--- %s seconds ---" % (time.time() - start_time))
+
+    print('Number unique vessels that conflicts would be raised for before any matching checking is '
+          '{}'.format(len(lr_sid_to_compare_df.IMO.unique())))
+    print('Number unique vessels that conflicts would be raised for after matching checking at threshold {} is '
+          '{}'.format(MATCH_THRESHOLD, len(conflicts_df.IMO.unique())))

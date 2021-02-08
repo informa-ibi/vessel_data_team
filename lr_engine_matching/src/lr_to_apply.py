@@ -66,3 +66,9 @@ if __name__ == '__main__':
     # TODO Create a map dictionary and create table of new data
 
     print("--- %s seconds ---" % (time.time() - start_time))
+
+    # Isolate the new values from LR that replace the UNKNOWN values that are new eng designations
+    new_eng_des_replace_unk = np.setdiff1d(lr_to_apply_df.ENGINE_DESIGNATION.unique().tolist(), existing_eng_desig)
+    print("Of the 'UNKNOWN' values in SID that LR has values for i.e. the gain from LR, there are {} engine "
+          "designations not in SID out of the {} that engine designations in SID".format(len(new_eng_des_replace_unk),
+                                                                                         len(existing_eng_desig)))
