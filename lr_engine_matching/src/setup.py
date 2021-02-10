@@ -25,3 +25,4 @@ LR_FOR_MANUAL_REVIEW = OUTPUT_DIR / 'lr_for_manual_review.csv'
 
 # Data to apply - manual review to check engine designations
 LR_APPLY_CHECK_ENG_DESIG = OUTPUT_DIR / 'lr_engine_designation_comparison.csv'
+LR_APPLY_CHECK_ENG_DESIG_REVIEWED = OUTPUT_DIR / 'lr_engine_designation_comparison.xlsx'
