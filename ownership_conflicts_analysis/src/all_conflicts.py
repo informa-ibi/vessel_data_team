@@ -32,7 +32,7 @@ if __name__ == '__main__':
 
     all_feeds = sorted(df.DATA_FEED.unique().tolist())
     p_and_i = sorted([feed for feed in all_feeds if 'PI_' in feed])
-    iacs = ['AB', 'BV', 'CS', 'IR', 'KR', 'LR', 'NK', 'NG', 'PR', 'RINA', 'RS']  # TODO check with Nina
+    iacs = ['AB', 'BV', 'CS', 'HV', 'IR', 'KR', 'LR', 'NK', 'NG', 'PR', 'RINA', 'RS']  # TODO check with Nina
     other = [feed for feed in all_feeds if (feed not in iacs) & (feed not in p_and_i)]
 
     # Setting up params
