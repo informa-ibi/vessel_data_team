@@ -76,7 +76,12 @@ The following query contains the main table that is created, with 4 subsequent q
       --  FROM ownership_t
       --  WHERE IGNORE_REASON = 'Likeness'
       --  GROUP BY CREATED_MONTH, CREATED_YEAR, RESOLVED_MONTH, RESOLVED_YEAR, DATA_FEED;
-  
+      
+      ---- Count conflicts where conflict status is manual update, grouping by month, year, feed
+      --    SELECT CREATED_MONTH, CREATED_YEAR, RESOLVED_MONTH, RESOLVED_YEAR, DATA_FEED, COUNT(DATA_FEED) AS NUM_MANUAL_UPDATE
+      --    FROM ownership_t
+      --    WHERE CONFLICT_STATUS = 'MANUAL UPDATE'
+      --    GROUP BY CREATED_MONTH, CREATED_YEAR, RESOLVED_MONTH, RESOLVED_YEAR, DATA_FEED;
 
 
   
