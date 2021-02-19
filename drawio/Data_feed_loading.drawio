@@ -1,4 +1,4 @@
-<mxfile host="app.diagrams.net" modified="2021-02-19T11:58:27.357Z" agent="5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/88.0.4324.150 Safari/537.36" etag="Jfpfv5oIaQfgn6pk18VD" version="14.2.7" type="github">
+<mxfile host="app.diagrams.net" modified="2021-02-19T12:20:50.602Z" agent="5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/88.0.4324.150 Safari/537.36" etag="RnlC2kG1vHHEaX0fA1MZ" version="14.2.7" type="github">
   <diagram id="MupkjY-apFnL6Ezs9EWT" name="Page-1">
     <mxGraphModel dx="1422" dy="794" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1169" pageHeight="827" math="0" shadow="0">
       <root>
@@ -29,8 +29,43 @@
         <mxCell id="HU59ZUTlWS1BO4ax0Ga1-13" value="" style="strokeWidth=2;html=1;shape=mxgraph.flowchart.stored_data;whiteSpace=wrap;" vertex="1" parent="1">
           <mxGeometry x="370" y="45.5" width="100" height="60" as="geometry" />
         </mxCell>
-        <mxCell id="HU59ZUTlWS1BO4ax0Ga1-14" value="Display&amp;nbsp;" style="rounded=1;whiteSpace=wrap;html=1;absoluteArcSize=1;arcSize=14;strokeWidth=2;" vertex="1" parent="1">
-          <mxGeometry x="690" y="26" width="100" height="100" as="geometry" />
+        <mxCell id="HU59ZUTlWS1BO4ax0Ga1-30" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.5;exitY=1;exitDx=0;exitDy=0;" edge="1" parent="1" source="HU59ZUTlWS1BO4ax0Ga1-14" target="HU59ZUTlWS1BO4ax0Ga1-15">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="HU59ZUTlWS1BO4ax0Ga1-14" value="Display files received&amp;nbsp;" style="rounded=1;whiteSpace=wrap;html=1;absoluteArcSize=1;arcSize=14;strokeWidth=2;" vertex="1" parent="1">
+          <mxGeometry x="525" y="230" width="100" height="100" as="geometry" />
+        </mxCell>
+        <mxCell id="HU59ZUTlWS1BO4ax0Ga1-31" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" edge="1" parent="1" target="HU59ZUTlWS1BO4ax0Ga1-18">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="575" y="550" as="sourcePoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="HU59ZUTlWS1BO4ax0Ga1-15" value="" style="shape=image;html=1;verticalAlign=top;verticalLabelPosition=bottom;labelBackgroundColor=#ffffff;imageAspect=0;aspect=fixed;image=https://cdn0.iconfinder.com/data/icons/web-development-and-studio/512/46_Analysis_analytic_analytics_chart_data_graph-128.png" vertex="1" parent="1">
+          <mxGeometry x="530" y="408" width="90" height="90" as="geometry" />
+        </mxCell>
+        <mxCell id="HU59ZUTlWS1BO4ax0Ga1-18" value="" style="shape=image;html=1;verticalAlign=top;verticalLabelPosition=bottom;labelBackgroundColor=#ffffff;imageAspect=0;aspect=fixed;image=https://cdn2.iconfinder.com/data/icons/multimedia-26/24/multimedia-24-128.png" vertex="1" parent="1">
+          <mxGeometry x="535" y="610" width="80" height="80" as="geometry" />
+        </mxCell>
+        <mxCell id="HU59ZUTlWS1BO4ax0Ga1-19" value="Attachment sent" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;" vertex="1" parent="1">
+          <mxGeometry x="30" y="110" width="100" height="20" as="geometry" />
+        </mxCell>
+        <mxCell id="HU59ZUTlWS1BO4ax0Ga1-20" value="Attachment received in &lt;br&gt;VDP dedicated folder" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;" vertex="1" parent="1">
+          <mxGeometry x="170" y="113" width="140" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="HU59ZUTlWS1BO4ax0Ga1-21" value="Send to VDP" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;" vertex="1" parent="1">
+          <mxGeometry x="380" y="118" width="80" height="20" as="geometry" />
+        </mxCell>
+        <mxCell id="HU59ZUTlWS1BO4ax0Ga1-28" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" edge="1" parent="1" source="HU59ZUTlWS1BO4ax0Ga1-22" target="HU59ZUTlWS1BO4ax0Ga1-14">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="HU59ZUTlWS1BO4ax0Ga1-22" value="Notify the analysts,&lt;br&gt;dedicated screen needed" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;" vertex="1" parent="1">
+          <mxGeometry x="500" y="118" width="150" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="HU59ZUTlWS1BO4ax0Ga1-24" value="Analysts to map the attachment &lt;br&gt;to the correct feed and re-map &lt;br&gt;any data items needed&amp;nbsp;" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;" vertex="1" parent="1">
+          <mxGeometry x="485" y="498" width="180" height="50" as="geometry" />
+        </mxCell>
+        <mxCell id="HU59ZUTlWS1BO4ax0Ga1-26" value="Stats displayed, &lt;br&gt;how many vessel matched etc." style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;" vertex="1" parent="1">
+          <mxGeometry x="487.5" y="700" width="180" height="30" as="geometry" />
         </mxCell>
       </root>
     </mxGraphModel>
