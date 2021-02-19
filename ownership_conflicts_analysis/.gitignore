@@ -1,0 +1,10 @@
+datasets/
+.DS_Store
+**/.DS_Store
+!data/.gitkeep
+env/
+.idea
+../.idea/
+.ipynb_checkpoints
+notebooks/
+**/__pycache__/

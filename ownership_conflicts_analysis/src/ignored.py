@@ -44,7 +44,7 @@ if __name__ == '__main__':
 
         current_handles, current_labels = fig.get_legend_handles_labels()
         new_labels = [label.split(', ')[1].strip(')') for label in current_labels]
-        legend = fig.legend(new_labels, loc='center left', bbox_to_anchor=(1, 0.5))
+        legend = fig.legend(new_labels, loc='center left', bbox_to_anchor=(1, 0.5), fontsize='x-small')
         legend.set_title('Months to Resolve')
 
         pl.xlabel("Data Feed", fontsize=12)
