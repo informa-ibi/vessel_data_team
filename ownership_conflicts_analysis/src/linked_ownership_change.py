@@ -2,26 +2,28 @@ import pandas as pd
 import numpy as np
 import pylab as pl
 import seaborn as sns
-from src.setup import LINKED_CONFLICTS, NOT_LINKED_CONFLICTS, IMAGES
+from src.setup import LINKED_CONFLICTS, NOT_LINKED_CONFLICTS, IMAGES, OUTPUT_DIR, CHARACTERISTIC
 
 
 YEAR = 2020.
 
 
 def stack_bar_feed_item(df, feed_type):
-    fig = df.plot(kind='bar', stacked=True, legend=False, width=0.85, linewidth=0.5)
+    fig = df.plot(kind='barh', stacked=True, legend=False, width=0.85, linewidth=0.5)
 
     current_handles, current_labels = fig.get_legend_handles_labels()
     new_labels = [label.split(', ')[1].strip(')') for label in current_labels]
     legend = fig.legend(new_labels, loc='center left', bbox_to_anchor=(1, 0.5), fontsize='x-small')
     legend.set_title('Data Item')
-    pl.xlabel("Data Feed", fontsize=12)
-    pl.ylabel("Count", fontsize=12)
-    pl.xticks(fontsize=6, rotation=90)
+    pl.ylabel("Data Feed", fontsize=12)
+    pl.xlabel("Count", fontsize=12)
+    pl.yticks(fontsize=6)
     pl.tight_layout(rect=[0, 0.03, 1, 0.95])
     title = fig.set_title(f'Count conflicts grouped by data item for {feed_type} feeds', fontsize=16)
-    pl.savefig(IMAGES / f'stacked_data_feed_data_items_{feed_type}.png',
+    pl.savefig(IMAGES / f'count_conflicts_data_feed_item_{feed_type}_{int(YEAR)}_onwards.png',
                dpi=300, bbox_extra_artists=[title, legend], bbox_inches='tight')
+    df.to_csv(OUTPUT_DIR / f'{CHARACTERISTIC}' / f'count_conflicts_data_feed_item_{feed_type}_{int(YEAR)}_onwards.csv',
+              index=False)
 
 
 if __name__ == '__main__':
@@ -51,9 +53,15 @@ if __name__ == '__main__':
     df_conflicts_proc_gr = df_conflicts_proc_gr.set_index('lag_gr').loc[orig_lag_gr_categories].reset_index()
 
     ax_bar = pl.figure()
-    sns.barplot(data=df_conflicts_proc_gr, x="lag_gr", y='No. Ownership Changes', palette='Spectral_r', order=orig_lag_gr_categories)
+    g1 = sns.barplot(data=df_conflicts_proc_gr, x="lag_gr", y='No. Ownership Changes', palette='Spectral_r', order=orig_lag_gr_categories)
     pl.xlabel("Lag (days)", fontsize=11)
     pl.xticks(rotation=90)
+    for p in g1.patches:
+        g1.annotate(int(p.get_height()),
+                    (p.get_x() + p.get_width() / 2., p.get_height()),
+                    ha='center', va='center',
+                    xytext=(0, 5),
+                    textcoords='offset points')
     title = ax_bar.suptitle(f'No. of vessels grouped by lag (days)\n from initial data item conflict to final data '
                              f'item conflict',  fontsize=12)
     pl.savefig(IMAGES / f'bar_conflicts_lag{int(YEAR)}.png', dpi=300, bbox_extra_artists=[title], bbox_inches='tight')
@@ -79,9 +87,15 @@ if __name__ == '__main__':
         .rename(columns={'level_1': 'Order Data Item Conflicts Created', 0: 'No. Ownership Changes'})
 
     ax_bar_order = pl.figure()
-    sns.barplot(data=df_order_conflicts_raised, x="Order Data Item Conflicts Created", y='No. Ownership Changes',
+    g2 = sns.barplot(data=df_order_conflicts_raised, x="Order Data Item Conflicts Created", y='No. Ownership Changes',
                 palette='Spectral_r')
     title = ax_bar_order.suptitle(f'No. ownership changes grouped by order of change',  fontsize=12)
+    for p in g2.patches:
+        g2.annotate(int(p.get_height()),
+                    (p.get_x() + p.get_width() / 2., p.get_height()),
+                    ha='center', va='center',
+                    xytext=(0, 5),
+                    textcoords='offset points')
     pl.savefig(IMAGES / f'bar_conflicts_order{int(YEAR)}.png', dpi=300, bbox_extra_artists=[title], bbox_inches='tight')
 
     # 3/ Data items by data feeds - grouped by IACS, P and I, AIS, and other

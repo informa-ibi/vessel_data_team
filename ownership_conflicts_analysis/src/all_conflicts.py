@@ -4,7 +4,7 @@ from math import ceil
 from datetime import datetime
 import pylab as pl
 import seaborn as sns
-from src.setup import CHARACTERISTIC, CONFLICTS_ALL, IMAGES
+from src.setup import CHARACTERISTIC, CONFLICTS_ALL, IMAGES, OUTPUT_DIR
 
 
 YEAR = 2020.
@@ -69,7 +69,7 @@ if __name__ == '__main__':
     title = fig_line_iacs.suptitle(f'No. Conflicts Created and Resolved each Month in {int(YEAR)} '
                                    f'\nfor IACS Class Societies.', fontsize=20)
     fig_line_iacs.tight_layout(rect=[0, 0.03, 1, 0.95])
-    pl.savefig(IMAGES / f'{CHARACTERISTIC}' / f'line_conflicts_created_resolved_per_month_{int(YEAR)}_IACS.png',
+    pl.savefig(IMAGES / f'{CHARACTERISTIC}' / f'conflicts_created_resolved_per_month_{int(YEAR)}_IACS.png',
                dpi=300, bbox_extra_artists=[title], bbox_inches='tight')
 
     # Figure 2 - P&I Clubs
@@ -98,7 +98,7 @@ if __name__ == '__main__':
     title = fig_line_p_and_i.suptitle(f'No. Conflicts Created and Resolved each Month in {int(YEAR)} '
                                       f'\nfor P&I Clubs.', fontsize=20)
     fig_line_p_and_i.tight_layout(rect=[0, 0.03, 1, 0.95])
-    pl.savefig(IMAGES / f'{CHARACTERISTIC}' / f'line_conflicts_created_resolved_per_month_{int(YEAR)}_PandI.png',
+    pl.savefig(IMAGES / f'{CHARACTERISTIC}' / f'conflicts_created_resolved_per_month_{int(YEAR)}_PandI.png',
                dpi=300, bbox_extra_artists=[title], bbox_inches='tight')
 
     # Figure  - Non IACS or P&I
@@ -127,5 +127,12 @@ if __name__ == '__main__':
     title = fig_line_other.suptitle(f'No. Conflicts Created and Resolved each Month in {int(YEAR)} '
                                     f'\nfor non-IACS and non-P&I Clubs.', fontsize=20)
     fig_line_other.tight_layout(rect=[0, 0.03, 1, 0.95])
-    pl.savefig(IMAGES / f'{CHARACTERISTIC}' / f'line_conflicts_created_resolved_per_month_{int(YEAR)}_other.png',
+    pl.savefig(IMAGES / f'{CHARACTERISTIC}' / f'conflicts_created_resolved_per_month_{int(YEAR)}_other.png',
                dpi=300, bbox_extra_artists=[title], bbox_inches='tight')
+
+    df_iacs_created.to_csv(OUTPUT_DIR / f'{CHARACTERISTIC}' / f'conflicts_created_per_month_{int(YEAR)}_IACS.csv', index=False)
+    df_iacs_resolved.to_csv(OUTPUT_DIR / f'{CHARACTERISTIC}' / f'conflicts_resolved_per_month_{int(YEAR)}_IACS.csv', index=False)
+    df_p_and_i_created.to_csv(OUTPUT_DIR / f'{CHARACTERISTIC}' / f'conflicts_created_per_month_{int(YEAR)}_PandI.csv', index=False)
+    df_p_and_i_resolved.to_csv(OUTPUT_DIR / f'{CHARACTERISTIC}' / f'conflicts_resolved_per_month_{int(YEAR)}_PandI.csv', index=False)
+    df_other_created.to_csv(OUTPUT_DIR / f'{CHARACTERISTIC}' / f'conflicts_created_per_month_{int(YEAR)}_other.csv', index=False)
+    df_other_resolved.to_csv(OUTPUT_DIR / f'{CHARACTERISTIC}' / f'conflicts_resolved_per_month_{int(YEAR)}_other.csv', index=False)

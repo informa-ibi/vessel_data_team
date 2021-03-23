@@ -4,7 +4,7 @@ import calendar
 from datetime import datetime
 import pylab as pl
 import seaborn as sns
-from src.setup import CHARACTERISTIC, CONFLICTS_LIKENESS, IMAGES
+from src.setup import CHARACTERISTIC, CONFLICTS_LIKENESS, IMAGES, OUTPUT_DIR
 
 
 YEAR = 2020.
@@ -40,20 +40,24 @@ if __name__ == '__main__':
         df_created_month = df.loc[(df.CREATED_MONTH == int(month)) &
                                   (df.CREATED_YEAR == YEAR)][['DATA_FEED', 'NUM_LIKENESS', 'MONTHS_TO_RESOLVE']]
 
-        df_created_month_pivot = df_created_month.pivot(columns='MONTHS_TO_RESOLVE', index='DATA_FEED').fillna(0)
-        fig = df_created_month_pivot.plot(kind='bar', stacked=True, legend=False, width=0.85, linewidth=0.5)
+        df_created_month_pivot = df_created_month.pivot(columns='MONTHS_TO_RESOLVE', index='DATA_FEED')\
+            .fillna(0).sort_values(by='DATA_FEED', ascending=False)
+        fig = df_created_month_pivot.plot(kind='barh', stacked=True, legend=False, width=0.85, linewidth=0.5)
 
         current_handles, current_labels = fig.get_legend_handles_labels()
         new_labels = [label.split(', ')[1].strip(')') for label in current_labels]
         legend = fig.legend(new_labels, loc='center left', bbox_to_anchor=(1, 0.5), fontsize='x-small')
         legend.set_title('Months to Resolve')
 
-        pl.xlabel("Data Feed", fontsize=12)
-        pl.ylabel("Count", fontsize=12)
-        pl.xticks(fontsize=4, rotation=90)
+        pl.ylabel("Data Feed", fontsize=12)
+        pl.xlabel("Count", fontsize=12)
+        pl.yticks(fontsize=6)
 
         pl.tight_layout(rect=[0, 0.03, 1, 0.95])
         title = fig.set_title(f'No. Conflicts Resolved under Likeness per Data Feed, Grouped by Months Taken to Resolve'
                               f'\nfor Conflicts Created in {calendar.month_abbr[int(month)]} {int(YEAR)}', fontsize=16)
         pl.savefig(IMAGES / f'{CHARACTERISTIC}' / f'count_likeness_by_feed_month_to_resolve_{int(month)}_{int(YEAR)}.png',
                    dpi=300, bbox_extra_artists=[title, legend], bbox_inches='tight')
+
+    df.to_csv(OUTPUT_DIR / f'{CHARACTERISTIC}' / f'count_likeness_by_feed_month_to_resolve_{int(YEAR)}.csv', index=False)
+

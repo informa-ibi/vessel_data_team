@@ -3,7 +3,7 @@ import numpy as np
 import calendar
 import pylab as pl
 import seaborn as sns
-from src.setup import CHARACTERISTIC, RESOLVED_ANALYST, IMAGES
+from src.setup import CHARACTERISTIC, RESOLVED_ANALYST, IMAGES, OUTPUT_DIR
 
 
 YEAR = 2020.
@@ -65,3 +65,5 @@ if __name__ == '__main__':
     fig_bar.tight_layout(rect=[0, 0.03, 1, 0.95])
     pl.savefig(IMAGES / f'{CHARACTERISTIC}' / f'count_resolved_by_analyst_per_month_{int(YEAR)}.png',
                dpi=300, bbox_extra_artists=[title], bbox_inches='tight')
+
+    df.to_csv(OUTPUT_DIR / f'{CHARACTERISTIC}' / f'count_resolved_by_analyst_per_month_{int(YEAR)}.csv', index=False)
